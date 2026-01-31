@@ -1,0 +1,9 @@
+.env
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+.idea
+.DS_Store
+.venv/*
+__pycache__/

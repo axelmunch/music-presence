@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "Navicord",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "main.py"
+      // "console": "integratedTerminal"
+    }
+  ]
+}
