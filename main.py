@@ -1,3 +1,4 @@
+from random import choice
 from time import sleep
 
 from pypresence import ActivityType, Presence, PyPresenceException, StatusDisplayType
@@ -44,16 +45,21 @@ while True:
                     }
                 ]
 
+            large_image = None
+            if config.COVER_IMAGES[0] != "":
+                large_image = choice(config.COVER_IMAGES)
+
             print("Updating presence")
             try:
                 RPC.update(
                     activity_type=ActivityType.LISTENING,
                     details=f"{music.artist} - {music.title}",
                     status_display_type=StatusDisplayType.DETAILS,
-                    large_text=f"🔁{format_ordinal(music.plays + 1)} listen",
-                    state=f'Playlist "{music.genre}"',
+                    large_text=f'Playlist "{music.genre}"',
+                    state=f"🔁{format_ordinal(music.plays + 1)} listen",
                     start=int(music.started_at),
                     end=int(music.ends_at),
+                    large_image=large_image,
                 )
                 cleared = False
             except AssertionError:

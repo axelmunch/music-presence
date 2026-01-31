@@ -27,7 +27,7 @@ class CurrentMusic:
         self.song_changed = True
 
     def get_song_info(self):
-        return f"\t{self.artist} - {self.title} ({self.genre})\n\t  🔁{format_ordinal(self.plays + 1)} listen\n\t  {self.comment}"
+        return f"\t{self.artist} - {self.title} [{self.genre}]\n\t  🔁{format_ordinal(self.plays + 1)} listen\n\t  {self.comment}"
 
     def update(self):
         try:
