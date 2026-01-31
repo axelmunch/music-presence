@@ -40,7 +40,7 @@ while True:
             if "youtube.com" in music.comment:
                 buttons = [
                     {
-                        "label": "music.title",
+                        "label": f"⏯️ {music.title}",
                         "url": music.comment,
                     }
                 ]
