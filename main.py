@@ -77,4 +77,4 @@ while True:
         except PyPresenceException:
             connect()
 
-    sleep(15)
+    sleep(10)
