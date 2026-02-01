@@ -60,6 +60,7 @@ while True:
                     start=int(music.started_at),
                     end=int(music.ends_at),
                     large_image=large_image,
+                    buttons=buttons,
                 )
                 cleared = False
             except AssertionError:
