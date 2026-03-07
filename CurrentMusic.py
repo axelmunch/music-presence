@@ -77,7 +77,11 @@ class CurrentMusic:
 
             self.song_changed = (
                 nowPlaying["id"] != self.id
-                or nowPlaying["playCount"] != self.plays
+                or (
+                    0
+                    if "playCount" not in nowPlaying
+                    else nowPlaying["playCount"] != self.plays
+                )
                 or nowPlaying["minutesAgo"] != self.minutes_ago
             )
 
@@ -89,7 +93,7 @@ class CurrentMusic:
                 if len(nowPlaying["genres"]) == 0
                 else nowPlaying["genres"][0]["name"]
             )
-            self.plays = nowPlaying["playCount"]
+            self.plays = 0 if "playCount" not in nowPlaying else nowPlaying["playCount"]
             self.minutes_ago = nowPlaying["minutesAgo"]
             if self.song_changed:
                 self.started_at = time() - self.minutes_ago * 60
