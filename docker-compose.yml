@@ -1,0 +1,16 @@
+services:
+  music-presence:
+    container_name: music-presence
+    image: music-presence:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      - XDG_RUNTIME_DIR=/run/user/1000/app/com.discordapp.Discord # Flatpak Discord
+      # - XDG_RUNTIME_DIR=/run/user/1000
+    volumes:
+      - /run/user/1000/app/com.discordapp.Discord:/run/user/1000/app/com.discordapp.Discord # Flatpak Discord
+      # - /run/user/1000/discord-ipc-0:/run/user/1000/discord-ipc-0
+      # - /run/user/1000:/run/user/1000
+    restart: unless-stopped
